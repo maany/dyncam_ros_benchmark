@@ -1,9 +1,12 @@
 #Get ROS 
 FROM ros:lunar
 
+MAINTAINER Mayank Sharma (mayank.sharma@uni-bremen.de)
+
 #####################
 # Configure ROS
 #####################
+
 RUN echo "Configuring ROS..."
 
 # add environment setup 
@@ -22,8 +25,9 @@ RUN /bin/bash -c "source /opt/ros/lunar/setup.bash && \
 # install misc packages
 #######################
 #install git
-RUN apt-get install -y \
-	git
+RUN apt-get update && apt-get install -qy \
+	git \
+	wget
 
 ######################
 # install libfreenect2
@@ -58,10 +62,14 @@ RUN git clone https://github.com/OpenKinect/libfreenect2.git \
 #   install opencv
 ######################
 
+RUN apt-get update && apt-get install -qy \
+	libopencv-dev \
+	python-opencv
 
 ######################
 # install iai_kinect2
 ######################
-
+WORKDIR ~/catkin_ws/src
 # clone repository
-RUN git clone https://github.com/code-iai/iai_kinect2
+RUN /bin/bash "git clone https://github.com/code-iai/iai_kinect2"
+

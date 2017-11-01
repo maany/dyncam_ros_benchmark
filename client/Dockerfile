@@ -27,7 +27,14 @@ RUN /bin/bash -c "source /opt/ros/lunar/setup.bash && \
 #install git
 RUN apt-get update && apt-get install -qy \
 	git \
-	wget
+	wget \
+	libpcl-dev \
+	ros-lunar-tf \
+	ros-lunar-depth-image-proc \
+	ros-lunar-compressed-image-transport \
+	ros-lunar-cv-bridge \
+	ros-lunar-compressed-depth-image-transport \
+	ocl-icd-opencl-dev
 
 ######################
 # install libfreenect2
@@ -69,7 +76,17 @@ RUN apt-get update && apt-get install -qy \
 ######################
 # install iai_kinect2
 ######################
-WORKDIR ~/catkin_ws/src
+
 # clone repository
-RUN /bin/bash "git clone https://github.com/code-iai/iai_kinect2"
+RUN  /bin/bash -c "apt-get update && \
+    cd /catkin_ws/src/ && \
+    git clone https://github.com/code-iai/iai_kinect2"
+
+RUN /bin/bash -c "sed -i '/if(OpenCL_FOUND)/a    add_definitions( -fexceptions )' /catkin_ws/src/iai_kinect2/kinect2_registration/CMakeLists.txt && \
+    cd /catkin_ws/src/iai_kinect2 && \
+    pwd && \
+    source /opt/ros/lunar/setup.bash && \
+    rosdep install -r --from-paths . && \
+    cd /catkin_ws && \
+    catkin_make"	
 

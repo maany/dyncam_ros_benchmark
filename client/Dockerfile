@@ -90,3 +90,12 @@ RUN /bin/bash -c "sed -i '/if(OpenCL_FOUND)/a    add_definitions( -fexceptions )
     cd /catkin_ws && \
     catkin_make"	
 
+########################
+# Volume and Entrypoint
+########################
+
+#mount volume for providing external configuration parameters
+VOLUME /dyncam_ros 
+
+# script to be executed after container starts. It should be configured to connect to the remote ROS master and receive the streamed data from the remote node.
+ENTRYPOINT /dyncam_ros/init.sh

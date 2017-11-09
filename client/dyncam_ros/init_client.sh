@@ -13,7 +13,7 @@ export ROS_IP=127.0.0.1
 
 # start viewer
 echo "starting viewer..."
-rosrun kinect2_viewer kinect2_viewer kinect2 sd cloud
+rosrun kinect2_viewer kinect2_viewer kinect2 sd image
  
 #exec "$@"
 

@@ -61,5 +61,5 @@ sudo docker run -it \
   -e ROS_IP="127.0.0.1" \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v /dev/bus/usb:/dev/bus/usb \
-  dyncam_ros_benchmark_client \
+  maany/dyncam_ros_benchmark_client \
   /bin/bash

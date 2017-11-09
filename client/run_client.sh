@@ -19,16 +19,15 @@
 # 4.Description of OPTIONS
 # =========================
 #
-# (a) --host : IP address or hostname of this machine on the network
-#     
+# (a) --host : IP address or hostname of this machine on the network    
 # (b) --master : IP address of the machine where ros master is running. i.e IP address of the server machine to which kinect is connected. 
 # (c) --ip : IP address of this machine
-# (d) --type [cloud|image] : value can be either 'cloud' or 'image'. Point Cloud will open up a opencv named window displaying the point cloud. 'image' will display a fused matrix of color and depth matrices. 
+# (d) --type [cloud|image] : value can be either 'cloud' or 'image'. 'cloud' will open up a opencv named window displaying the point cloud. 'image' will display a fused matrix of color and depth matrices. 
 # 
 # 5. Example
 # ===========
 #
-# run_clienbt.sh --host=localhost --master=192.168.2.101 --ip=192.168.2.100 --type=cloud
+# run_client.sh --host=localhost --master=192.168.2.101 --ip=192.168.2.100 --type=cloud
 #
 ###############################################################################################
 
@@ -82,6 +81,6 @@ sudo docker run -it \
   -e ROS_IP="${IP}" \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v /dev/bus/usb:/dev/bus/usb \
-  dyncam_ros_benchmark_client \
+  maany/dyncam_ros_benchmark_client \
   /bin/bash
 

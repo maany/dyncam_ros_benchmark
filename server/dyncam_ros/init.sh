@@ -11,10 +11,13 @@ export ROS_MASTER_URI=http://localhost:11311
 export ROS_HOSTNAME=localhost
 export ROS_IP=127.0.0.1
 
-# start viewer
-echo "starting viewer..."
-rosrun kinect2_viewer kinect2_viewer kinect2 sd cloud
- 
-#exec "$@"
+# start roscore
+echo "starting roscore..."
+roscore 
 
-#while true; do sleep 1000; done
+#start ros_kinect_bridge
+echo "starting ros_kinect_bridge..."
+roslaunch kinect2_bridge kinect2_bridge.launch
+ 
+exec "$@"
+

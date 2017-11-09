@@ -5,10 +5,10 @@ echo "Setting up environment..."
 source "/opt/ros/lunar/setup.bash"
 source "/catkin_ws/devel/setup.bash"
 
-
+#glxinfo
 # start roscore
-echo "starting roscore..."
-roscore 
+#echo "starting roscore..."
+#roscore 
 
 # start ros_kinect_bridge
 #echo "starting ros_kinect_bridge..."
@@ -16,6 +16,8 @@ roscore
 
 # start viewer
 #echo "starting viewer..."
-#rosrun kinect2_viewer kinect2_viewer kinect2 sd cloud.
+rosrun kinect2_viewer kinect2_viewer kinect2 sd cloud
  
-exec "$@"
+#exec "$@"
+
+#while true; do sleep 1000; done

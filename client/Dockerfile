@@ -80,7 +80,7 @@ RUN apt-get update && apt-get install -qy \
 # clone repository
 RUN  /bin/bash -c "apt-get update && \
     cd /catkin_ws/src/ && \
-    git clone https://github.com/code-iai/iai_kinect2"
+    git clone https://github.com/maany/iai_kinect2"
 
 RUN /bin/bash -c "sed -i '/if(OpenCL_FOUND)/a    add_definitions( -fexceptions )' /catkin_ws/src/iai_kinect2/kinect2_registration/CMakeLists.txt && \
     cd /catkin_ws/src/iai_kinect2 && \

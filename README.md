@@ -13,16 +13,14 @@
 1. Start the server
   ```./run_server.sh --ip=$[server_ip_address]```
 1. Start a local client to see data from the kinect
-   ```./run_local_client.sh --type=[cloud|image]```
+   ```./run_local_client.sh --type=[depth|color|image|cloud|all]```
    
-See the instructions in [run_server.sh](https://github.com/maany/dyncam-ros_benchmark/blob/master/server/run_server.sh) and [run_local_client.sh](https://github.com/maany/dyncam-ros_benchmark/blob/master/server/run_local_client.sh) for more details   
+See the instructions in [run_server.sh](https://github.com/maany/dyncam-ros_benchmark/blob/master/server/run_server.sh) and [run_local_client.sh](https://github.com/maany/dyncam-ros_benchmark/blob/master/server/run_local_client.sh) for more details about using the run scripts.  
 ## Client Machine
-1. Change firectory to the client folder in this repo. ```cd dyncam_ros_benchmark/client```
+1. Change directory to the client folder in this repo. ```cd dyncam_ros_benchmark/client```
 1. Check the IP address[client_ip_address] of the client for the network interface that will be used to receive kinect's data.[``` ip addr show```]
 1. Make sure the server is still running
 1. Start the remote client
-  ```./run_client.sh --master=[server_ip_address] --host=[client_ip_address] --ip=$[client_ip_address] --type=[cloud|image]```
-1. Start a local client to see data from the kinect
-   ```./run_local_client.sh --type=[cloud|image]```
+  ```./run_client.sh --master=[server_ip_address] --host=[client_ip_address] --ip=$[client_ip_address] --type=[depth|color|image|cloud|all]```
    
 See the instructions in [run_client.sh](https://github.com/maany/dyncam-ros_benchmark/blob/master/client/run_client.sh)

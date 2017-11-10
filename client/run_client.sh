@@ -22,8 +22,12 @@
 # (a) --host : IP address or hostname of this machine on the network    
 # (b) --master : IP address of the machine where ros master is running. i.e IP address of the server machine to which kinect is connected. 
 # (c) --ip : IP address of this machine
-# (d) --type [cloud|image] : value can be either 'cloud' or 'image'. 'cloud' will open up a opencv named window displaying the point cloud. 'image' will display a fused matrix of color and depth matrices. 
-# 
+# (d) --type [color|depth|image|cloud|all] : value can be either 'depth', 'color', 'image', 'cloud' or 'all'. 
+# 		(i)   'depth' open a window for viewing depth stream only
+# 		(ii)  'color' open a window for viewing color stream only
+#		(iii) 'image' will display a color and depth matrices in separate OpenCV windows.	     
+#		(iv)  'cloud' will open up a opencv named window displaying the point cloud. 
+# 		(v)   'all' will display 3 opencv windows, one for color stream, depth stream and point cloud respectively 
 # 5. Example
 # ===========
 # 

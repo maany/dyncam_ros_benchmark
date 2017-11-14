@@ -35,6 +35,9 @@
 #
 ###############################################################################################
 
+echo "make init_client.sh executable"
+chmod "+x" ./dyncam_ros/init_client.sh
+
 echo "Enabling sharing of display between container and host."
 xhost +local:root #enable sharing of access control list
 
@@ -85,6 +88,6 @@ sudo docker run -it \
   -e ROS_IP="${IP}" \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v /dev/bus/usb:/dev/bus/usb \
-  maany/dyncam_ros_benchmark_client \
+  maany/dyncam_ros_benchmark_client_nv \
   /bin/bash
 

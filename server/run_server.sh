@@ -63,6 +63,6 @@ sudo docker run -it \
   -e ROS_HOSTNAME="${HOST}" \
   -e ROS_IP="${IP}" \
   -v /dev/bus/usb:/dev/bus/usb \
-  maany/dyncam_ros_benchmark_server \
+  maany/dyncam_ros_benchmark_server_nv \
   /bin/bash 
 

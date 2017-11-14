@@ -34,8 +34,16 @@ RUN apt-get update && apt-get install -qy \
 	ros-lunar-compressed-image-transport \
 	ros-lunar-cv-bridge \
 	ros-lunar-compressed-depth-image-transport \
-	ocl-icd-opencl-dev
+	ocl-icd-opencl-dev \
+        software-properties-common
 
+########################
+# install nvidia drivers
+########################
+ENV DEBIAN_FRONTEND noninteractive
+RUN add-apt-repository ppa:graphics-drivers && \
+    apt-get update && apt-get install -qy \
+    nvidia-384        
 ######################
 # install libfreenect2
 ######################
